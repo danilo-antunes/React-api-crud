@@ -25,7 +25,7 @@ const Page = (props) => (
         <Stack spacing={3}>
           <div>
             <Typography variant="h4">
-            Meter's Details
+            Meter Details
             </Typography>
           </div>
           <div>

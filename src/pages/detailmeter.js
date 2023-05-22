@@ -6,7 +6,7 @@ import { DetailMeterDetails } from "src/sections/detailmeter/detail-meter-detail
 const Page = (props) => (
   <>
     <Head>
-      <title>Meter's Details | Take Home Exercise</title>
+      <title>Meter Details | Take Home Exercise</title>
     </Head>
     <Box
       component="main"
@@ -18,7 +18,7 @@ const Page = (props) => (
       <Container maxWidth="lg">
         <Stack spacing={3}>
           <div>
-            <Typography variant="h4">Meter's Details</Typography>
+            <Typography variant="h4">Meter Details</Typography>
           </div>
           <div>
             <Grid container spacing={3}>

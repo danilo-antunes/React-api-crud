@@ -1,6 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
 import Head from "next/head";
-import { subDays, subHours } from "date-fns";
 import ArrowDownOnSquareIcon from "@heroicons/react/24/solid/ArrowDownOnSquareIcon";
 import ArrowUpOnSquareIcon from "@heroicons/react/24/solid/ArrowUpOnSquareIcon";
 import PlusIcon from "@heroicons/react/24/solid/PlusIcon";
@@ -8,7 +7,6 @@ import { Box, Button, Container, Stack, SvgIcon, Typography } from "@mui/materia
 import { useSelection } from "src/hooks/use-selection";
 import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
 import { CustomersTable } from "src/sections/meters/meters-table";
-import { CustomersSearch } from "src/sections/meters/customers-search";
 import { applyPagination } from "src/utils/apply-pagination";
 
 const now = new Date();
@@ -52,8 +50,8 @@ const Page = () => {
           py: 8,
         }}
       >
-        <Container maxWidth="xl" >
-          <Stack spacing={3} >
+        <Container maxWidth="xl">
+          <Stack spacing={3}>
             <Stack direction="row" justifyContent="space-between" spacing={4}>
               <Stack spacing={1}>
                 <Typography variant="h4">Customers</Typography>
@@ -93,7 +91,7 @@ const Page = () => {
                 </Button>
               </div>
             </Stack>
-            <CustomersSearch />
+
             <CustomersTable
               count={data.length}
               items={customers}
