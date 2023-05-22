@@ -8,7 +8,7 @@ npm install
 
 After installing the dependencies, execute:
 
-npm run dev
+npm start
 
 Future developments:
 
