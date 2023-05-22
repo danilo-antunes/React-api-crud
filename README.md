@@ -15,3 +15,6 @@ Future developments:
 - Refactor a few components to increase modularization 
 - Implement tool to visualize and understand the full user journey - e.g.Amplitude, Hotjar. 
 - Increase XSS security implementing a few sanitations.
+
+
+PS - Somehow Meter CASO_2 became a default meter, the API does't alow me do delete, even using Postman to dicard any possible app issue. 
