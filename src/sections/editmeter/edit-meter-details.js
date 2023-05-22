@@ -43,18 +43,16 @@ const options = [
 
 const api_key = "7621e9457f783f3d6fda2f6e022c398f79c86994b5da04df3e9b467b454a695d";
 
-
-
 export const EditMeterDetails = () => {
   const router = useRouter();
   const formik = useFormik({
-    enableReinitialize:true ,
+    enableReinitialize: true,
     initialValues: {
-      display_name: "alo",
-      api_name: "",
-      active: true,
-      used_for_billing: true,
-      type: "sum",
+      display_name: localStorage.getItem("display_name"),
+      api_name: localStorage.getItem("api_name"),
+      active: localStorage.getItem("active"),
+      used_for_billing: localStorage.getItem("used_for_billing"),
+      type: localStorage.getItem("type"),
     },
     validationSchema: Yup.object({
       display_name: Yup.string().max(255).required("Please specify the Meter's Display Name"),
@@ -72,7 +70,8 @@ export const EditMeterDetails = () => {
         values.used_for_billing = false;
       }
       try {
-        const apiUrl = "https://take-home-exercise-api.herokuapp.com/meters/"+localStorage.getItem("id");
+        const apiUrl =
+          "https://take-home-exercise-api.herokuapp.com/meters/" + localStorage.getItem("id");
         const res = await fetch(apiUrl, {
           method: "PUT",
           headers: {
@@ -98,15 +97,14 @@ export const EditMeterDetails = () => {
             <Grid container spacing={3}>
               <Grid xs={12} md={6}>
                 <TextField
-                  
                   error={!!(formik.touched.display_name && formik.errors.display_name)}
                   fullWidth
                   helperText={formik.touched.display_name && formik.errors.display_name}
-                  label={ "Display Name- " + localStorage.getItem("display_name")}
+                  label="Display Name"
                   name="display_name"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
-                  value={formik.initialValues.display_name}
+                  value={formik.values.display_name}
                 />
               </Grid>
               <Grid xs={12} md={6}>
@@ -114,11 +112,11 @@ export const EditMeterDetails = () => {
                   error={!!(formik.touched.api_name && formik.errors.api_name)}
                   fullWidth
                   helperText={formik.touched.api_name && formik.errors.api_name}
-                  label={ "Api Name- " + localStorage.getItem("api_name")}
+                  label="Api Name"
                   name="api_name"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
-                  value={formik.api_name}
+                  value={formik.values.api_name}
                 />
               </Grid>
               <Grid xs={4} md={4}>
@@ -130,7 +128,7 @@ export const EditMeterDetails = () => {
                   required
                   select
                   SelectProps={{ native: true }}
-                  value={localStorage.getItem("active")}
+                  value={formik.values.active}
                 >
                   {options.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -148,7 +146,7 @@ export const EditMeterDetails = () => {
                   required
                   select
                   SelectProps={{ native: true }}
-                  value={localStorage.getItem("used_for_billing")}
+                  value={formik.values.used_for_billing}
                 >
                   {options.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -166,7 +164,7 @@ export const EditMeterDetails = () => {
                   required
                   select
                   SelectProps={{ native: true }}
-                  value={localStorage.getItem("type")}
+                  value={formik.values.type}
                 >
                   {meter_types.map((option) => (
                     <option key={option.value} value={option.value}>
