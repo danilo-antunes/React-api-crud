@@ -1,9 +1,10 @@
 import React from "react";
-import JoyRide from "react-joyride";
+import JoyRide, {STATUS} from "react-joyride";
 const TOUR_STEPS = [
   {
     target: ".landingPage",
     content: "This is the Landing Page, where you can see every meter that you have registered.",
+    placement: 'right',
   },
   {
     target: ".newMeter",
